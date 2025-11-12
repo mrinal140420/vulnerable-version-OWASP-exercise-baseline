@@ -1,0 +1,114 @@
+/* static/css/style.css - simple clean lab styles */
+
+/* page layout */
+:root{
+  --bg: #0f1724;      /* dark navy */
+  --card: #0b1220;    /* slightly lighter */
+  --muted: #94a3b8;   /* muted text */
+  --accent: #7c3aed;  /* purple accent */
+  --danger: #ef4444;
+  --radius: 10px;
+  --max-w: 980px;
+}
+
+* { box-sizing: border-box; }
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#061124 0%, var(--bg) 100%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:var(--max-w);
+  margin:28px auto;
+  padding:20px;
+}
+
+/* header / nav */
+header{
+  margin-bottom:18px;
+}
+header h1{
+  margin:0 0 8px 0;
+  font-size:20px;
+  letter-spacing:0.2px;
+}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-right:12px;
+  font-size:14px;
+}
+nav a:hover{ color: #fff; text-decoration:underline; }
+
+/* card */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  padding:18px;
+  border-radius:var(--radius);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+/* forms */
+form p{ margin:10px 0; }
+input[type="text"], input[type="password"], input[type="file"], textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #eaf2ff;
+  outline:none;
+}
+input:focus, textarea:focus{
+  box-shadow:0 0 0 4px rgba(124,58,237,0.12);
+  border-color: rgba(124,58,237,0.7);
+}
+
+/* buttons */
+.btn{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:8px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.ghost{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+.btn.danger{ background:var(--danger); }
+
+/* lists / tables */
+ul { padding-left:18px; color:var(--muted); }
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+th, td{
+  text-align:left;
+  padding:10px 8px;
+  border-bottom:1px dashed rgba(255,255,255,0.03);
+  font-size:14px;
+}
+
+/* small helpers */
+small.muted{ color:var(--muted); font-size:13px; }
+footer small{ color:var(--muted); }
+
+/* responsive */
+@media (max-width:640px){
+  .container{ padding:12px; margin:14px; }
+  header h1{ font-size:18px; }
+  nav a{ display:inline-block; margin-bottom:6px; }
+}
