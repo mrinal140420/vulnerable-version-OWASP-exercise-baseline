@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2>All users (insecure admin page)</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Username</th><th>Admin</th></tr></thead>
+      <tbody>
+        {% for u in users %}
+        <tr>
+          <td>{{ u.id }}</td>
+          <td>{{ u.username }}</td>
+          <td>{{ u.is_admin }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="muted">This page is deliberately unprotected in the lab app.</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    {% if user %}
+      <p>Welcome back, <strong>{{ user.username }}</strong>!</p>
+      <p>
+        <a class="btn" href="{{ url_for('upload') }}">Upload file</a>
+        <a class="btn ghost" href="{{ url_for('admin') }}">Admin (insecure)</a>
+      </p>
+      <p>View profile examples:
+        <a href="{{ url_for('profile', uid=user.id) }}">My profile</a> |
+        <a href="{{ url_for('profile', uid=1) }}">User #1</a>
+      </p>
+    {% else %}
+      <p>Please <a class="btn" href="{{ url_for('login') }}">Login</a> to continue.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Vulnerable App{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Vulnerable App (lab)</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('upload') }}">Upload</a>
+        <a href="{{ url_for('admin') }}">Admin</a>
+        {% if current_user.is_authenticated %}
+          <span class="muted">Logged in as <strong>{{ current_user.username }}</strong></span>
+          <a class="btn ghost" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+          <a class="btn" href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+      </nav>
+    </div>
+    <hr>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div class="container">
+      <hr>
+      <small class="muted">Local lab (insecure) — do not expose to internet</small>
+    </div>
+  </footer>
+</body>
+</html>
